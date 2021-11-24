@@ -35,7 +35,8 @@ app.add_middleware(
 def root():
     return {
         "message": {
-            "my value": f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}",
-            "correct_value": SQLALCHEMY_DATABASE_URL
+            # "my value": f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}",
+            # "correct_value": SQLALCHEMY_DATABASE_URL
+            "hello world",
         }
     }
