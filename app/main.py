@@ -3,6 +3,8 @@ from . import models
 from .database import engine
 from app.routers import post, user, auth, vote
 from fastapi.middleware.cors import CORSMiddleware
+from app.config import settings
+from app.database import SQLALCHEMY_DATABASE_URL
 
 # models.Base.metadata.create_all(bind=engine)
 
@@ -26,7 +28,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
+
 
 @app.get("/")
 def root():
-    return {"message": "Hello world"}
+    return {"message": {"my value": f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"}}
